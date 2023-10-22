@@ -1,4 +1,5 @@
-# Terraform Zero to Hero course
+# Terraform Zero to Hero
+![Screenshot 2023-10-21 120651](https://miro.medium.com/v2/resize:fit:828/format:webp/1*ATNMu1nQTnIXauJYXlDDGw.png)
 
 ## Day 1: Getting Started with Terraform
 
