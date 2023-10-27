@@ -32,7 +32,7 @@ A remote backend stores the Terraform state file outside of your local file syst
      backend "s3" {
        bucket         = "your-terraform-state-bucket"
        key            = "path/to/your/terraform.tfstate"
-       region         = "us-east-1" # Change to your desired region
+       region         = "ap-south-1" # Change to your desired region
        encrypt        = true
        dynamodb_table = "your-dynamodb-table"
      }
@@ -87,7 +87,7 @@ By following these steps, you can securely store your Terraform state in S3 with
      backend "s3" {
        bucket         = "your-terraform-state-bucket"
        key            = "path/to/your/terraform.tfstate"
-       region         = "us-east-1" # Change to your desired region
+       region         = "ap-south-1" # Change to your desired region
        encrypt        = true
        dynamodb_table = "your-dynamodb-table"
      }

@@ -4,7 +4,7 @@ Create a directory for your Terraform project and create a Terraform configurati
 
 ```hcl
    provider "aws" {
-     region = "us-east-1"  # Set your desired AWS region
+     region = "ap-south-1"  # Set your desired AWS region
    }
 
    resource "aws_instance" "example" {

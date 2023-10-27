@@ -1,6 +1,6 @@
 # Define the AWS provider configuration.
 provider "aws" {
-  region = "us-east-1"  # Replace with your desired AWS region.
+  region = "ap-south-1"  # Replace with your desired AWS region.
 }
 
 variable "cidr" {
@@ -19,7 +19,7 @@ resource "aws_vpc" "myvpc" {
 resource "aws_subnet" "sub1" {
   vpc_id                  = aws_vpc.myvpc.id
   cidr_block              = "10.0.0.0/24"
-  availability_zone       = "us-east-1a"
+  availability_zone       = "ap-south-1a"
   map_public_ip_on_launch = true
 }
 
@@ -73,7 +73,7 @@ resource "aws_security_group" "webSg" {
 }
 
 resource "aws_instance" "server" {
-  ami                    = "ami-0261755bbcb8c4a84"
+  ami                    = "ami-08e5424edfe926b43"
   instance_type          = "t2.micro"
   key_name      = aws_key_pair.example.key_name
   vpc_security_group_ids = [aws_security_group.webSg.id]
