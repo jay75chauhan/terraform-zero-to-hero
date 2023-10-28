@@ -7,16 +7,20 @@ variable "cidr" {
   default = "10.0.0.0/16"
 }
 
-resource "aws_key_pair" "example" {
+resource "aws_key_pair" "key" {
   key_name   = "terraform-demo-abhi"  # Replace with your desired key name
   public_key = file("~/.ssh/id_rsa.pub")  # Replace with the path to your public key file
+
+  # ssh-keygen -t rsa
 }
+
+
 
 resource "aws_vpc" "myvpc" {
   cidr_block = var.cidr
 }
 
-resource "aws_subnet" "sub1" {
+resource "aws_subnet" "sub" {
   vpc_id                  = aws_vpc.myvpc.id
   cidr_block              = "10.0.0.0/24"
   availability_zone       = "ap-south-1a"
@@ -37,7 +41,7 @@ resource "aws_route_table" "RT" {
 }
 
 resource "aws_route_table_association" "rta1" {
-  subnet_id      = aws_subnet.sub1.id
+  subnet_id      = aws_subnet.sub.id
   route_table_id = aws_route_table.RT.id
 }
 
@@ -47,8 +51,8 @@ resource "aws_security_group" "webSg" {
 
   ingress {
     description = "HTTP from VPC"
-    from_port   = 80
-    to_port     = 80
+    from_port   = 8080
+    to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -75,9 +79,9 @@ resource "aws_security_group" "webSg" {
 resource "aws_instance" "server" {
   ami                    = "ami-08e5424edfe926b43"
   instance_type          = "t2.micro"
-  key_name      = aws_key_pair.example.key_name
+  key_name               = aws_key_pair.key.key_name
   vpc_security_group_ids = [aws_security_group.webSg.id]
-  subnet_id              = aws_subnet.sub1.id
+  subnet_id              = aws_subnet.sub.id
 
   connection {
     type        = "ssh"
@@ -103,4 +107,8 @@ resource "aws_instance" "server" {
     ]
   }
 }
+
+output "ec2_public_ip" {
+    value = aws_instance.server.public_ip
+  }
 
