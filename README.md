@@ -1,6 +1,10 @@
 # Terraform Zero to Hero
 ![Screenshot 2023-10-21 120651](https://miro.medium.com/v2/resize:fit:828/format:webp/1*ATNMu1nQTnIXauJYXlDDGw.png)
 
+# Cheat Sheet
+![terraform-cheat-sheet_page-0001](https://github.com/jay75chauhan/jay75chauhan/assets/66429052/e01b83f1-2c32-47e5-866a-f720dcdf279f)
+![terraform-cheat-sheet_page-0002](https://github.com/jay75chauhan/jay75chauhan/assets/66429052/81a8633b-6ebe-48bf-95ed-4cf1b8932bb9)
+
 ## Day 1: Getting Started with Terraform
 
 #### Introduction to Terraform and IaC
